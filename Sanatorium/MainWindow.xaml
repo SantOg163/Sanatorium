@@ -1,0 +1,24 @@
+﻿<Window x:Class="Sanatorium.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sanatorium"
+        mc:Ignorable="d"
+        Title="Sanatorium" Height="650" Width="1135">
+    <Grid Background="White" >
+        <TextBlock x:Name="Titule" HorizontalAlignment="Left" Margin="60,25,0,0" TextWrapping="Wrap" Text="Sanatorium" VerticalAlignment="Top" FontSize="36" Foreground="#FF49319B" FontFamily="Segoe UI"/>
+        <Frame x:Name="MainFrame" Margin="0,89,0,55" Source="Pages/AuthPage.xaml" Navigated="MainFrame_Navigated"/>
+        <StackPanel Orientation="Horizontal" Width="770" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,25,0,0" x:Name="Stack">
+            <Button x:Name="ClientList" Content="ClientList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="ClientList_Click" />
+            <Button x:Name="PositionList" Content="PositionList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="PositionList_Click"/>
+            <Button x:Name="ServiceList" Content="ServiceList" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ServiceList_Click"/>
+            <Button x:Name="CabinetList" Content="CabinetList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="CabineteList_Click"/>
+            <Button x:Name="EmployeeList" Content="EmployeeList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="EmployeeList_Click"/>
+            <Button x:Name="HistoryList" Content="HistoryList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="HistoryList_Click"/>
+            <Button x:Name="AppointmenList" Content="AppointmenList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="AppointmentistList_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
