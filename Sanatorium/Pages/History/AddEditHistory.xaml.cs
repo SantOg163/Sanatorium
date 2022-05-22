@@ -24,20 +24,26 @@ namespace Sanatorium
     {
         private History _currentHistory = new History();
 
-        public AddEditHistory(History _selectedHistory)
+        public AddEditHistory(History _selectedHistory, Client client)
         {
             InitializeComponent();
-            if( _selectedHistory != null )
-                _currentHistory = _selectedHistory;
-            DataContext = _currentHistory;
-
-            ComboClient.ItemsSource = SanatoriumEntities.GetContext().Client.ToList();
             ComboEmployee.ItemsSource = SanatoriumEntities.GetContext().Employee.ToList();
+            if( _selectedHistory != null)
+            {
+                _currentHistory = _selectedHistory;
+                ComboEmployee.SelectedIndex=_selectedHistory.EmployeeId - 1;
+
+            }
+            DataContext = _currentHistory;
+            Name.Content=client.Name;
+            _currentHistory.ClientId = client.Id;
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
+            if (ComboEmployee.Text == "")
+                errors.AppendLine("Выберите врача");
             if (string.IsNullOrWhiteSpace(_currentHistory.Symptoms))
                 errors.AppendLine("Введите симптомы");
             if (_currentHistory.Symptoms.Length > 50)

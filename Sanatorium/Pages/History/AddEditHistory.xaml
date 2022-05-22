@@ -32,7 +32,7 @@
         <TextBlock Text="DischargeDate" Grid.Column="0" Grid.Row="6"></TextBlock>
         <Button Content="Save" Grid.ColumnSpan="2" Grid.Row="8" Click="BtnSave_Click"></Button>
 
-        <ComboBox x:Name="ComboClient" SelectedItem="{Binding Id}" DisplayMemberPath="Name" Text="{Binding ClientId}" Grid.Column="1" Grid.Row="0" Width="200" HorizontalAlignment="Left"></ComboBox>
+        <Label x:Name="Name" Grid.Column="1"></Label>
         <ComboBox x:Name="ComboEmployee" SelectedItem="{Binding Id}" DisplayMemberPath="Name" Text="{Binding EmployeeId}" Grid.Column="1" Grid.Row="1" Width="200" HorizontalAlignment="Left" ></ComboBox>
         <TextBox MaxLength="50" Grid.Column="1" Grid.Row="2" Text="{Binding Symptoms}" Width="200" HorizontalAlignment="Left"></TextBox>
         <TextBox MaxLength="50" Grid.Column="1" Grid.Row="3" Text="{Binding Diagnosis}" Width="200" HorizontalAlignment="Left"></TextBox>

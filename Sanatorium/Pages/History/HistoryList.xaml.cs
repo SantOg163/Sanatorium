@@ -22,16 +22,15 @@ namespace Sanatorium
     /// </summary>
     public partial class HistoryList : Page
     {
-        public HistoryList()
+        public Client _client;
+        public HistoryList(Client client)
         {
             InitializeComponent();
-            DGridHistory.ItemsSource = SanatoriumEntities.GetContext().History.ToList();
-
+            _client = client;
             if (User.user.Role != "Главный врач")
             {
                 Delete.Visibility = Visibility.Hidden;
                 Add.Visibility = Visibility.Hidden;
-
             }
             if (User.user.Role == "Врач" )
             {
@@ -41,11 +40,11 @@ namespace Sanatorium
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditHistory((sender as Button).DataContext as History));
+            Manager.MainFrame.Navigate(new AddEditHistory((sender as Button).DataContext as History,_client));
         }
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditHistory(null));
+            Manager.MainFrame.Navigate(new AddEditHistory(null,_client));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -53,7 +52,7 @@ namespace Sanatorium
             if (Visibility == Visibility.Visible)
             {
                 SanatoriumEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                DGridHistory.ItemsSource = SanatoriumEntities.GetContext().History.ToList();
+                DGridHistory.ItemsSource = SanatoriumEntities.GetContext().History.Where(h=>h.ClientId==_client.Id).ToList();
             }
         }
 

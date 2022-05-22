@@ -15,6 +15,6 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Title" Grid.Column="0" Height="64" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200"/>
         <TextBox MaxLength="50" Grid.Column="1" Grid.Row="1" Text="{Binding Title}" Width="200" Height="64" HorizontalAlignment="Left"></TextBox>
-        <Button Content="Save" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="BtnSave_Click"></Button>
+        <Button Content="Save" VerticalAlignment="Bottom" Click="BtnSave_Click" Grid.Column="1" Margin="150,0,350,15"/>
     </Grid>
 </Page>

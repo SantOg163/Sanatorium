@@ -15,6 +15,7 @@ namespace Sanatorium.Models
             Appointment = new HashSet<Appointment>();
             History = new HashSet<History>();
             User = new HashSet<User>();
+            Schedule = new HashSet<Schedule>();
         }
 
         public int Id { get; set; }
@@ -43,5 +44,8 @@ namespace Sanatorium.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> User { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Schedule> Schedule { get; set; }
     }
 }

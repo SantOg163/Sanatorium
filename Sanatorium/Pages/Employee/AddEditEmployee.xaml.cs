@@ -26,16 +26,20 @@ namespace Sanatorium
         public AddEditEmployee(Employee _selectedEmployee)
         {
             InitializeComponent();
-
-            if (_selectedEmployee != null)
-                _currentEmployee = _selectedEmployee;
-            DataContext = _currentEmployee;
             ComboPositions.ItemsSource = SanatoriumEntities.GetContext().Position.ToList();
+            if (_selectedEmployee != null)
+            { 
+                _currentEmployee = _selectedEmployee;
+            ComboPositions.SelectedIndex = _selectedEmployee.PositionId - 1;
+            }
+            DataContext = _currentEmployee;
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
+            if (ComboPositions.Text == "")
+                errors.AppendLine("Выберите специальность");
             if (string.IsNullOrWhiteSpace(_currentEmployee.Name))
                 errors.AppendLine("Введите имя клиента");
             if (_currentEmployee.Name.Length > 50)

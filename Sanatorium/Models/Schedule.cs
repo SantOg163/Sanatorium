@@ -6,26 +6,17 @@ namespace Sanatorium.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("User")]
-    public partial class User
+    [Table("Schedule")]
+    public partial class Schedule
     {
-        public static User user;
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         public int EmployeeId { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Role { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Login { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Password { get; set; }
-
+        [Column(TypeName = "date")]
+        public DateTime Workday { get; set; }
+        public string DayOfWeek { get =>$"({Workday.DayOfWeek})";  }
         public virtual Employee Employee { get; set; }
     }
 }

@@ -18,7 +18,7 @@
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Born" Binding="{Binding Born}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="PhoneNumber" Binding="{Binding Phone}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="PhoneNumber" Binding="{Binding PhoneNumber}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="BloodType" Binding="{Binding BloodType}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="PolicyNumber" Binding="{Binding PolicyNumber}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Adress" Binding="{Binding Adress}" Width="*"></DataGridTextColumn>
@@ -29,10 +29,21 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="History" Name="BtnHistory" Click="BtnHistory_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
 
         </DataGrid>
         <Button Content="Delete" HorizontalAlignment="Left" Name="Delete" Click="BtnDelete_Click" Grid.Row="1"></Button>
         <Button Content="Add" HorizontalAlignment="Right" Name="Add" Click="BtnAdd_Click" Grid.Row="1"  ></Button>
+
+
+
+        
     </Grid>
 </Page>

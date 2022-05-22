@@ -78,5 +78,10 @@ namespace Sanatorium
                 DGridClients.ItemsSource = SanatoriumEntities.GetContext().Client.ToList();
             }
         }
+
+        private void BtnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new HistoryList((sender as Button).DataContext as Client));
+        }
     }
 }

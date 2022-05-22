@@ -26,25 +26,55 @@ namespace Sanatorium
         public AddEditAppointment(Appointment _selectedAppointment)
         {
             InitializeComponent();
-            if( _selectedAppointment != null )
-                _currentAppointment = _selectedAppointment;
-            DataContext = _currentAppointment;
-            _currentAppointment.DateRegistration = DateTime.Now;
-
             ComboClient.ItemsSource = SanatoriumEntities.GetContext().Client.ToList();
             ComboEmployee.ItemsSource = SanatoriumEntities.GetContext().Employee.ToList();
             ComboService.ItemsSource = SanatoriumEntities.GetContext().Service.ToList();
             ComboCabinet.ItemsSource = SanatoriumEntities.GetContext().Cabinet.ToList();
+            VisitDate.ItemsSource = SanatoriumEntities.GetContext().Schedule.Where(s => s.Employee.Name == ComboEmployee.Text).ToList();
+            if (_selectedAppointment != null)
+            {
+                _currentAppointment = _selectedAppointment;
+                ComboClient.SelectedIndex = _selectedAppointment.ClientId - 1;
+                ComboEmployee.SelectedIndex = _selectedAppointment.EmployeeId - 1;
+                ComboService.SelectedIndex = _selectedAppointment.ServiceId - 1;
+                ComboCabinet.SelectedIndex = _selectedAppointment.CabinetId - 1;
+                VisitDate.Text = $"{_selectedAppointment.VisitDate}";
+            }  
+            DataContext = _currentAppointment;
+            _currentAppointment.DateRegistration = DateTime.Now;
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
-            if (_currentAppointment.VisitDate.GetType().Name != "DateTime")
-                errors.AppendLine("Неверно введена дата визита");
-            if(errors.Length > 0)
+            try
+            {
+                var time = VisitTime.Text.Split(':');
+                _currentAppointment.VisitDate = Convert.ToDateTime(VisitDate.Text).AddHours(Convert.ToInt32(time[0])).AddMinutes(Convert.ToInt32(time[1]));
+            }
+            catch
+            {
+                errors.AppendLine("Неверно введена дата или время визита");
+            }
+            if (ComboCabinet.Text == "")
+                errors.AppendLine("Выберите кабинет");
+            if (ComboClient.Text == "")
+                errors.AppendLine("Выберите клиента");
+            if (ComboEmployee.Text == "")
+                errors.AppendLine("Выберите врача");
+            if (ComboService.Text == "")
+                errors.AppendLine("Выберите процедуру");
+            if (errors.Length > 0)
+            {
                 MessageBox.Show(errors.ToString());
-            SanatoriumEntities.GetContext().Appointment.Add(_currentAppointment);
+                return;
+            }
+            _currentAppointment.ServiceId = ComboService.SelectedIndex + 1;
+            _currentAppointment.CabinetId = ComboCabinet.SelectedIndex + 1;
+            _currentAppointment.ClientId = ComboClient.SelectedIndex + 1;
+            _currentAppointment.EmployeeId = ComboEmployee.SelectedIndex + 1;
+            if(_currentAppointment.Id == 0)
+                SanatoriumEntities.GetContext().Appointment.Add(_currentAppointment);
             try
             {
                 SanatoriumEntities.GetContext().SaveChanges();
@@ -57,14 +87,12 @@ namespace Sanatorium
             }
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void ComboEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-        }
-
-        private void ComboClient_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            var strin = ComboEmployee.SelectedValue as Employee;
+            if(ComboEmployee.SelectedValue != null)
+            VisitDate.ItemsSource = SanatoriumEntities.GetContext().Schedule.Where(s=>s.Employee.Name==strin.Name).ToList();
+            
         }
     }
 }

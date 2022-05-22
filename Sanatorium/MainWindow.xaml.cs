@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Sanatorium
 {
     /// <summary>
@@ -54,12 +55,6 @@ namespace Sanatorium
             Manager.MainFrame = MainFrame;
         }
 
-        private void HistoryList_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new HistoryList());
-            Manager.MainFrame = MainFrame;
-        }
-
         private void AppointmentistList_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new AppointmentList());
@@ -80,6 +75,12 @@ namespace Sanatorium
                 Stack.Visibility = Visibility.Visible;
                 Titule.Visibility = Visibility.Visible;
             }
-        }        
+        }
+
+        private void ScheduleList_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Pages.Schedule.Statistic());
+            Manager.MainFrame = MainFrame;
+        }
     }
 }

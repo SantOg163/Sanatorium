@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         Title="Sanatorium" Height="650" Width="1135">
     <Grid Background="White" >
-        <TextBlock x:Name="Titule" HorizontalAlignment="Left" Margin="60,25,0,0" TextWrapping="Wrap" Text="Sanatorium" VerticalAlignment="Top" FontSize="36" Foreground="#FF49319B" FontFamily="Segoe UI"/>
-        <Frame x:Name="MainFrame" Margin="0,89,0,55" Source="Pages/AuthPage.xaml" Navigated="MainFrame_Navigated"/>
-        <StackPanel Orientation="Horizontal" Width="770" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,25,0,0" x:Name="Stack">
+        <TextBlock x:Name="Titule" HorizontalAlignment="Left" Margin="40,15,0,0" TextWrapping="Wrap" Text="Sanatorium" VerticalAlignment="Top" FontSize="36" Foreground="#FF49319B" FontFamily="Segoe UI"/>
+        <Frame x:Name="MainFrame" Margin="0,89,0,55" Source="Pages/AuthPage.xaml" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated"/>
+        <StackPanel Orientation="Horizontal" Width="770" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,15,0,0" x:Name="Stack">
+            <Button x:Name="ScheduleList" Content="ScheduleList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="ScheduleList_Click"/>
             <Button x:Name="ClientList" Content="ClientList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="ClientList_Click" />
             <Button x:Name="PositionList" Content="PositionList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="PositionList_Click"/>
             <Button x:Name="ServiceList" Content="ServiceList" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ServiceList_Click"/>
             <Button x:Name="CabinetList" Content="CabinetList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="CabineteList_Click"/>
             <Button x:Name="EmployeeList" Content="EmployeeList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="EmployeeList_Click"/>
-            <Button x:Name="HistoryList" Content="HistoryList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="HistoryList_Click"/>
             <Button x:Name="AppointmenList" Content="AppointmenList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="AppointmentistList_Click"/>
 
         </StackPanel>

@@ -7,10 +7,6 @@ namespace Sanatorium.Models
 {
     public partial class SanatoriumEntities : DbContext
     {
-        public SanatoriumEntities()
-            : base("name=SanatoriumEntities")
-        {
-        }
         private static SanatoriumEntities _context;
         public static SanatoriumEntities GetContext()
         {
@@ -18,12 +14,18 @@ namespace Sanatorium.Models
                 _context = new SanatoriumEntities();
             return _context;
         }
+        public SanatoriumEntities()
+            : base("name=SanatoriumEntities")
+        {
+        }
+
         public virtual DbSet<Appointment> Appointment { get; set; }
         public virtual DbSet<Cabinet> Cabinet { get; set; }
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<History> History { get; set; }
         public virtual DbSet<Position> Position { get; set; }
+        public virtual DbSet<Schedule> Schedule { get; set; }
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
@@ -57,6 +59,11 @@ namespace Sanatorium.Models
 
             modelBuilder.Entity<Employee>()
                 .HasMany(e => e.User)
+                .WithRequired(e => e.Employee)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Employee>()
+                .HasMany(e => e.Schedule)
                 .WithRequired(e => e.Employee)
                 .WillCascadeOnDelete(false);
 

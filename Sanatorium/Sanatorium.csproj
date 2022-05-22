@@ -73,6 +73,7 @@
     <Compile Include="Models\History.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\SanatoriumEntities.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Models\User.cs" />
@@ -96,6 +97,15 @@
     </Compile>
     <Compile Include="Pages\Position\AddEditPosition.xaml.cs">
       <DependentUpon>AddEditPosition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Schedule\AddEditSchedule.xaml.cs">
+      <DependentUpon>AddEditSchedule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Schedule\ScheduleList.xaml.cs">
+      <DependentUpon>ScheduleList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Schedule\Statistic.xaml.cs">
+      <DependentUpon>Statistic.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Service\AddEditService.xaml.cs">
       <DependentUpon>AddEditService.xaml</DependentUpon>
@@ -146,6 +156,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Position\AddEditPosition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Schedule\AddEditSchedule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Schedule\ScheduleList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Schedule\Statistic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

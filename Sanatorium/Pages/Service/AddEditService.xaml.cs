@@ -26,15 +26,20 @@ namespace Sanatorium
         public AddEditService(Service _selectedService)
         {
             InitializeComponent();
-            if( _selectedService != null )
-                _currentService = _selectedService;
-            DataContext = _currentService;
             ComboPositions.ItemsSource = SanatoriumEntities.GetContext().Position.ToList();
+            if( _selectedService != null )
+            {
+                _currentService = _selectedService;
+                ComboPositions.SelectedIndex = _selectedService.PositionId-1;
+            }
+            DataContext = _currentService;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
+            if (ComboPositions.Text == "")
+                errors.AppendLine("Выберите специальность");
             if (string.IsNullOrWhiteSpace(_currentService.Appointment))
                 errors.AppendLine("Введите назначение");
             if (_currentService.Appointment.Length > 50)
