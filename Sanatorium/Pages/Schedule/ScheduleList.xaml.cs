@@ -63,7 +63,21 @@ namespace Sanatorium.Pages.Schedule
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate((sender as Button).DataContext as Models.Schedule);        }
+            Manager.MainFrame.Navigate((sender as Button).DataContext as Models.Schedule);      
+        }
 
+        private void btnStatistic_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new Statistic());
+        }
+        private void EmployeeName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (EmployeeName.Text == "")
+            {
+                DGridSchedule.ItemsSource = SanatoriumEntities.GetContext().Schedule.ToList();
+                return;
+            }
+            DGridSchedule.ItemsSource = SanatoriumEntities.GetContext().Schedule.Where(a => a.Employee.Name.ToLower().Contains(EmployeeName.Text.ToLower())).ToList();
+        }
     }
 }

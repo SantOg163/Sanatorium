@@ -9,7 +9,7 @@ namespace Sanatorium.Models
     [Table("User")]
     public partial class User
     {
-        public static User user;
+        public static User user { get; set; } = new User();
         public int Id { get; set; }
 
         public int EmployeeId { get; set; }

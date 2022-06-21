@@ -73,5 +73,15 @@ namespace Sanatorium
                 DGridEmployee.ItemsSource = SanatoriumEntities.GetContext().Employee.ToList();
             }
         }
+
+        private void EmployeeName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (EmployeeName.Text == "")
+            {
+                DGridEmployee.ItemsSource = SanatoriumEntities.GetContext().Employee.ToList();
+                return;
+            }
+            DGridEmployee.ItemsSource = SanatoriumEntities.GetContext().Employee.Where(a => a.Name.ToLower().Contains(EmployeeName.Text.ToLower())).ToList();
+        }
     }
 }

@@ -23,21 +23,21 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Client" Grid.Column="0" Grid.Row="0"></TextBlock>
-        <TextBlock Text="Employee" Grid.Column="0" Grid.Row="1"></TextBlock>
-        <TextBlock Text="Symptoms" Grid.Column="0" Grid.Row="2"></TextBlock>
-        <TextBlock Text="Diagnosis" Grid.Column="0" Grid.Row="3"></TextBlock>
-        <TextBlock Text="Medicine" Grid.Column="0" Grid.Row="4"></TextBlock>
-        <TextBlock Text="VisitDate" Grid.Column="0" Grid.Row="5"></TextBlock>
-        <TextBlock Text="DischargeDate" Grid.Column="0" Grid.Row="6"></TextBlock>
-        <Button Content="Save" Grid.ColumnSpan="2" Grid.Row="8" Click="BtnSave_Click"></Button>
+        <TextBlock Text="Клиент" Grid.Column="0" Grid.Row="0"></TextBlock>
+        <TextBlock Text="Сотрудник" Grid.Column="0" Grid.Row="1"></TextBlock>
+        <TextBlock Text="Симптомы" Grid.Column="0" Grid.Row="2"></TextBlock>
+        <TextBlock Text="Диагноз" Grid.Column="0" Grid.Row="3"></TextBlock>
+        <TextBlock Text="Лекарства" Grid.Column="0" Grid.Row="4"></TextBlock>
+        <TextBlock Text="Дата визита" Grid.Column="0" Grid.Row="5"></TextBlock>
+        <TextBlock Text="Дата выписки" Grid.Column="0" Grid.Row="6"></TextBlock>
+        <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="8" Click="BtnSave_Click"></Button>
 
         <Label x:Name="Name" Grid.Column="1"></Label>
         <ComboBox x:Name="ComboEmployee" SelectedItem="{Binding Id}" DisplayMemberPath="Name" Text="{Binding EmployeeId}" Grid.Column="1" Grid.Row="1" Width="200" HorizontalAlignment="Left" ></ComboBox>
         <TextBox MaxLength="50" Grid.Column="1" Grid.Row="2" Text="{Binding Symptoms}" Width="200" HorizontalAlignment="Left"></TextBox>
         <TextBox MaxLength="50" Grid.Column="1" Grid.Row="3" Text="{Binding Diagnosis}" Width="200" HorizontalAlignment="Left"></TextBox>
         <TextBox MaxLength="50" Grid.Column="1" Grid.Row="4" Text="{Binding Medicine}" Width="200" HorizontalAlignment="Left"></TextBox>
-        <TextBox MaxLength="50" Grid.Column="1" Grid.Row="5" Text="{Binding VisitDate}" Width="200" HorizontalAlignment="Left"></TextBox>
-        <TextBox MaxLength="50" Grid.Column="1" Grid.Row="6" Text="{Binding DischargeDate}" Width="200" HorizontalAlignment="Left"></TextBox>
+        <DatePicker x:Name="VD"  Grid.Column="1" Grid.Row="5" Text="{Binding VisitDate}" Width="200" HorizontalAlignment="Left"></DatePicker>
+        <DatePicker x:Name="DD"  Grid.Column="1" Grid.Row="6" Text="{Binding DischargeDate}" Width="200" HorizontalAlignment="Left"></DatePicker>
     </Grid>
 </Page>

@@ -13,8 +13,8 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Title" Grid.Column="0" Height="64" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200"/>
+        <TextBlock Text="Название" Grid.Column="0" Height="64" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200"/>
         <TextBox MaxLength="50" Grid.Column="1" Grid.Row="1" Text="{Binding Title}" Width="200" Height="64" HorizontalAlignment="Left"></TextBox>
-        <Button Content="Save" VerticalAlignment="Bottom" Click="BtnSave_Click" Grid.Column="1" Margin="150,0,350,15"/>
+        <Button Content="Сохранить" VerticalAlignment="Bottom" Click="BtnSave_Click" Grid.Column="1" Margin="150,0,350,15"/>
     </Grid>
 </Page>

@@ -29,11 +29,12 @@ namespace Sanatorium.Models
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Statistic> Statistic { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Cabinet>()
-                .HasMany(e => e.Appointment1)
+                .HasMany(e => e.Appointment)
                 .WithRequired(e => e.Cabinet)
                 .WillCascadeOnDelete(false);
 
@@ -70,6 +71,11 @@ namespace Sanatorium.Models
             modelBuilder.Entity<Position>()
                 .Property(e => e.Title)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Position>()
+                .HasMany(e => e.Cabinet)
+                .WithRequired(e => e.Position)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Position>()
                 .HasMany(e => e.Employee)

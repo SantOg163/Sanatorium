@@ -28,15 +28,16 @@ namespace Sanatorium
             InitializeComponent();
             DGridClients.ItemsSource = SanatoriumEntities.GetContext().Client.ToList();
 
-            if (User.user.Role != "Главный врач")
+            if (User.user.Role != "Главный врач" || User.user.Role != "Администратор")
             {
                 Delete.Visibility = Visibility.Hidden;
                 Add.Visibility = Visibility.Hidden;
             }
-            if (User.user.Role == "Администратор")
+            if(User.user.Role== "Главный врач")
             {
                 Delete.Visibility = Visibility.Visible;
                 Add.Visibility = Visibility.Visible;
+
             }
         }
 
@@ -82,6 +83,15 @@ namespace Sanatorium
         private void BtnHistory_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new HistoryList((sender as Button).DataContext as Client));
+        }
+        private void ClientName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (ClientName.Text == "")
+            {
+                DGridClients.ItemsSource = SanatoriumEntities.GetContext().Client.ToList();
+                return;
+            }
+            DGridClients.ItemsSource = SanatoriumEntities.GetContext().Client.Where(a => a.Name.ToLower().Contains(ClientName.Text.ToLower())).ToList();
         }
     }
 }

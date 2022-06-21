@@ -70,5 +70,15 @@ namespace Sanatorium
                 DGridAppointment.ItemsSource = SanatoriumEntities.GetContext().Appointment.ToList();
             }
         }
+
+        private void ClientName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (ClientName.Text == "")
+            {
+                DGridAppointment.ItemsSource = SanatoriumEntities.GetContext().Appointment.ToList();
+                return;
+            }
+            DGridAppointment.ItemsSource = SanatoriumEntities.GetContext().Appointment.Where(a => a.Client.Name.ToLower().Contains(ClientName.Text.ToLower())).ToList();
+        }
     }
 }

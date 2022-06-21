@@ -28,8 +28,6 @@ namespace Sanatorium
             InitializeComponent();
             ComboClient.ItemsSource = SanatoriumEntities.GetContext().Client.ToList();
             ComboEmployee.ItemsSource = SanatoriumEntities.GetContext().Employee.ToList();
-            ComboService.ItemsSource = SanatoriumEntities.GetContext().Service.ToList();
-            ComboCabinet.ItemsSource = SanatoriumEntities.GetContext().Cabinet.ToList();
             VisitDate.ItemsSource = SanatoriumEntities.GetContext().Schedule.Where(s => s.Employee.Name == ComboEmployee.Text).ToList();
             if (_selectedAppointment != null)
             {
@@ -90,8 +88,12 @@ namespace Sanatorium
         private void ComboEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var strin = ComboEmployee.SelectedValue as Employee;
-            if(ComboEmployee.SelectedValue != null)
-            VisitDate.ItemsSource = SanatoriumEntities.GetContext().Schedule.Where(s=>s.Employee.Name==strin.Name).ToList();
+            if (ComboEmployee.SelectedValue != null)
+            {
+                VisitDate.ItemsSource = SanatoriumEntities.GetContext().Schedule.Where(s=>s.Employee.Name==strin.Name).ToList();
+                ComboService.ItemsSource = SanatoriumEntities.GetContext().Service.Where(p => p.PositionId == strin.PositionId).ToList();
+                ComboCabinet.ItemsSource = SanatoriumEntities.GetContext().Cabinet.Where(p => p.PositionId == strin.PositionId).ToList();
+            }
             
         }
     }

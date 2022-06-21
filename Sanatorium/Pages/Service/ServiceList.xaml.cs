@@ -25,9 +25,7 @@ namespace Sanatorium
         public ServiceList()
         {
             InitializeComponent();
-            
-            //Вывод названия профессии вместо id 
-
+            comboPosition.ItemsSource = SanatoriumEntities.GetContext().Position.ToList();
             DGridServices.ItemsSource = SanatoriumEntities.GetContext().Service.ToList();
 
             if (User.user.Role != "Главный врач")
@@ -73,6 +71,15 @@ namespace Sanatorium
             {
                 SanatoriumEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
                 DGridServices.ItemsSource = SanatoriumEntities.GetContext().Service.ToList();
+            }
+        }
+
+        private void comboPosition_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var pos = comboPosition.SelectedValue as Position;
+            if(pos != null)
+            {
+                DGridServices.ItemsSource = SanatoriumEntities.GetContext().Service.Where(s => s.Position.Title == pos.Title).ToList();
             }
         }
     }

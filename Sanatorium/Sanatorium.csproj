@@ -75,13 +75,11 @@
     <Compile Include="Models\SanatoriumEntities.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\Statistic.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\Appointment\AddEditAppointment.xaml.cs">
       <DependentUpon>AddEditAppointment.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\AuthPage.xaml.cs">
-      <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Cabinet\AddEditCabinet.xaml.cs">
       <DependentUpon>AddEditCabinet.xaml</DependentUpon>
@@ -132,10 +130,6 @@
       <DependentUpon>ServiceList.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\Appointment\AddEditAppointment.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\AuthPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -215,15 +209,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\VisiblePage.xaml">
+    <Page Include="Pages\Statistics\AddEditExpenses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Statistics\ExpenseList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Statistics\Statistic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\User\AddEditUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\User\UserLsit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\Manager.cs" />
-    <Compile Include="Pages\VisiblePage.xaml.cs">
-      <DependentUpon>VisiblePage.xaml</DependentUpon>
+    <Compile Include="Pages\Statistics\AddEditExpenses.xaml.cs">
+      <DependentUpon>AddEditExpenses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Statistics\ExpenseList.xaml.cs">
+      <DependentUpon>ExpenseList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Statistics\Statistic.xaml.cs">
+      <DependentUpon>Statistic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\AddEditUser.xaml.cs">
+      <DependentUpon>AddEditUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\UserLsit.xaml.cs">
+      <DependentUpon>UserLsit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

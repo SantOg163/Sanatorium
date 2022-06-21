@@ -5,20 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sanatorium"
         mc:Ignorable="d"
-        Title="Sanatorium" Height="650" Width="1135">
-    <Grid Background="White" >
+        Title="Sanatorium" Height="650" Width="1320">
+    <Grid Background="White">
         <TextBlock x:Name="Titule" HorizontalAlignment="Left" Margin="40,15,0,0" TextWrapping="Wrap" Text="Sanatorium" VerticalAlignment="Top" FontSize="36" Foreground="#FF49319B" FontFamily="Segoe UI"/>
-        <Frame x:Name="MainFrame" Margin="0,89,0,55" Source="Pages/AuthPage.xaml" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated"/>
-        <StackPanel Orientation="Horizontal" Width="770" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,15,0,0" x:Name="Stack">
-            <Button x:Name="ScheduleList" Content="ScheduleList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="ScheduleList_Click"/>
-            <Button x:Name="ClientList" Content="ClientList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="ClientList_Click" />
-            <Button x:Name="PositionList" Content="PositionList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="PositionList_Click"/>
-            <Button x:Name="ServiceList" Content="ServiceList" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ServiceList_Click"/>
-            <Button x:Name="CabinetList" Content="CabinetList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="CabineteList_Click"/>
-            <Button x:Name="EmployeeList" Content="EmployeeList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="EmployeeList_Click"/>
-            <Button x:Name="AppointmenList" Content="AppointmenList" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="AppointmentistList_Click"/>
+        <Frame x:Name="MainFrame" Margin="0,89,0,55" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated"/>
+        <StackPanel Orientation="Horizontal" Width="auto" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,15,0,0" x:Name="Stack">
+            <Button x:Name="Statistic" Content="Расходы" Click="Statistic_Click"/>
+            <Button x:Name="UserList" Content="Пользователи" Click="UserList_Click"/>
+            <Button x:Name="ScheduleList" Content="Расписание" Click="ScheduleList_Click"/>
+            <Button x:Name="PositionList" Content="Должности" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="PositionList_Click"/>
+            <Button x:Name="ServiceList" Content="Услуги" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ServiceList_Click"/>
+            <Button x:Name="CabinetList" Content="Кабинеты" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="CabineteList_Click"/>
+            <Button x:Name="EmployeeList" Content="Сотрудники" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="EmployeeList_Click"/>
+            <Button x:Name="ClientList" Content="Клиенты" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="ClientList_Click" />
+            <Button x:Name="AppointmenList" Content="Записи" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="AppointmentistList_Click"/>
 
         </StackPanel>
 
+        <Border x:Name="Auth" Width="450" Height="340" BorderThickness="0.5" BorderBrush="#FF49319B">
+            <StackPanel HorizontalAlignment="Center" Width="300" VerticalAlignment="Center">
+                <TextBlock Text="Авторизация" FontSize="32" Foreground="#FF49319B" FontWeight="Normal" HorizontalAlignment="Right" Width="200" Margin="0,0,100,50" Grid.RowSpan="2"/>
+                <StackPanel Orientation="Horizontal" Height="40" Margin="0,0,0,0">
+                    <TextBlock Text="Логин" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Width="100"></TextBlock>
+                    <TextBox  x:Name="TextBoxLogin" Width="200" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="40" Margin="0,0,0,50">
+                    <TextBlock Text="Пароль" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <PasswordBox x:Name="PasswordBox" Width="200" HorizontalAlignment="Left" VerticalContentAlignment="Center" ></PasswordBox>
+                </StackPanel>
+                <Button Content="Войти" Click="Log_in_Click" Grid.Row="4" Grid.ColumnSpan="2"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

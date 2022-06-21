@@ -58,6 +58,9 @@ namespace Sanatorium
                 errors.AppendLine("Слишком длинный список лекарств");
             if(errors.Length > 0)
                 MessageBox.Show(errors.ToString());
+            _currentHistory.EmployeeId = SanatoriumEntities.GetContext().Employee.Find(ComboEmployee.SelectedIndex + 1).Id;
+            _currentHistory.DischargeDate = Convert.ToDateTime(DD.Text);
+            _currentHistory.DischargeDate = Convert.ToDateTime(DD.Text);
             SanatoriumEntities.GetContext().History.Add(_currentHistory);
             try
             {

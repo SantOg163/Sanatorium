@@ -22,18 +22,18 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Client" Grid.Column="0" Grid.Row="0"></TextBlock>
-        <TextBlock Text="Employee" Grid.Column="0" Grid.Row="1"></TextBlock>
-        <TextBlock Text="Cabinet" Grid.Column="0" Grid.Row="2"></TextBlock>
-        <TextBlock Text="Service" Grid.Column="0" Grid.Row="3"></TextBlock>
-        <TextBlock Text="VisitDate" Grid.Column="0" Grid.Row="4"></TextBlock>
-        <TextBlock Text="VisitTime" Grid.Column="0" Grid.Row="5"></TextBlock>
-        <Button Content="Save" Grid.ColumnSpan="2" Grid.Row="6" Click="BtnSave_Click" ></Button>
+        <TextBlock Text="Клиент" Grid.Column="0" Grid.Row="0"></TextBlock>
+        <TextBlock Text="Сотрудник" Grid.Column="0" Grid.Row="1"></TextBlock>
+        <TextBlock Text="Кабинет" Grid.Column="0" Grid.Row="2"></TextBlock>
+        <TextBlock Text="Услуга" Grid.Column="0" Grid.Row="3"></TextBlock>
+        <TextBlock Text="Дата" Grid.Column="0" Grid.Row="4"></TextBlock>
+        <TextBlock Text="Время" Grid.Column="0" Grid.Row="5"></TextBlock>
+        <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="6" Click="BtnSave_Click" ></Button>
         <ComboBox x:Name="ComboClient" SelectedItem="{Binding Id}" DisplayMemberPath="Name" Text="{Binding ClientId}" Grid.Column="1" Grid.Row="0" Width="200" HorizontalAlignment="Left" ></ComboBox>
         <ComboBox x:Name="ComboEmployee" SelectedItem="{Binding Id}" DisplayMemberPath="Name" Text="{Binding EmployeeId}" Grid.Column="1" Grid.Row="1" Width="200" HorizontalAlignment="Left" SelectionChanged="ComboEmployee_SelectionChanged" ></ComboBox>
         <ComboBox x:Name="ComboCabinet" SelectedItem="{Binding Id}" DisplayMemberPath="CabinetNumber" Text="{Binding CabinetId}" Grid.Column="1" Grid.Row="2" Width="200" HorizontalAlignment="Left"></ComboBox>
         <ComboBox x:Name="ComboService" SelectedItem="{Binding Id}" DisplayMemberPath="Appointment" Text="{Binding ServiceId}" Grid.Column="1" Grid.Row="3" Width="200" HorizontalAlignment="Left"></ComboBox>
-        <ComboBox x:Name="VisitDate" SelectedItem="{Binding Workday}" DisplayMemberPath="Workday" Text="{Binding VisitDate}" Grid.Column="1" Grid.Row="4" Width="200" HorizontalAlignment="Left" ></ComboBox>
+        <ComboBox x:Name="VisitDate" SelectedItem="{Binding Workday}" DisplayMemberPath="Workday" Text="{Binding VisitDate}" Grid.Column="1" Grid.Row="4" Width="200" HorizontalAlignment="Left"></ComboBox>
         <TextBox x:Name="VisitTime" Grid.Row="5" Width="200" Grid.Column="1" HorizontalAlignment="Left" />
             
     </Grid>

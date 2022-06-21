@@ -53,6 +53,7 @@ namespace Sanatorium
                 MessageBox.Show(errors.ToString());
                 return;
             }
+            _currentClient.Born = Convert.ToDateTime(DatePick.Text);
             if(_currentClient.Id == 0)
                 SanatoriumEntities.GetContext().Client.Add(_currentClient);
             try

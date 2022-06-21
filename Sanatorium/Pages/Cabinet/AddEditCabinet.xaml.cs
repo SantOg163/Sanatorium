@@ -26,20 +26,27 @@ namespace Sanatorium
         public AddEditCabinet(Cabinet _selectedCabinets)
         {
             InitializeComponent();
+            ComboPosition.ItemsSource = SanatoriumEntities.GetContext().Position.ToList();
             if( _selectedCabinets != null )
-                _currentCabinet = _selectedCabinets;    
+            {
+                _currentCabinet = _selectedCabinets;
+                ComboPosition.SelectedIndex = _selectedCabinets.PositionId - 1;
+            }  
+
             DataContext = _currentCabinet;
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
-            if (string.IsNullOrWhiteSpace(_currentCabinet.Appointment))
-                errors.AppendLine("Введите назначение");
-            if (_currentCabinet.Appointment.Length > 50)
-                errors.AppendLine("Слишком длинное назначение");
+            if (ComboPosition.Text=="")
+                errors.AppendLine("Выберите специализацию");
             if (errors.Length > 0)
+            {
                 MessageBox.Show(errors.ToString());
+                return;
+            }
+            _currentCabinet.PositionId = ComboPosition.SelectedIndex + 1;
             if (_currentCabinet.Id == 0)
                 SanatoriumEntities.GetContext().Cabinet.Add(_currentCabinet);
             try

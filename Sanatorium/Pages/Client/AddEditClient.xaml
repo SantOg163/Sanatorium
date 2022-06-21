@@ -23,16 +23,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <TextBlock Text="Name" Grid.Row="0"></TextBlock>
-        <TextBlock Text="Born" Grid.Row="1"></TextBlock>
-        <TextBlock Text="PhoneNumber" Grid.Row="2"></TextBlock>
-        <TextBlock Text="BloodType" Grid.Row="3"></TextBlock>
-        <TextBlock Text="PolicyNumber" Grid.Row="4"></TextBlock>
-        <TextBlock Text="Address" Grid.Row="5"></TextBlock>
-        <Button Content="Save" Grid.Row="6" Grid.ColumnSpan="2" Click="BtnSave_Click"></Button>
+        <TextBlock Text="Имя" Grid.Row="0"></TextBlock>
+        <TextBlock Text="Дата рождения" Grid.Row="1"></TextBlock>
+        <TextBlock Text="Номер телефона" Grid.Row="2"></TextBlock>
+        <TextBlock Text="Группа крови" Grid.Row="3"></TextBlock>
+        <TextBlock Text="Номер полиса" Grid.Row="4"></TextBlock>
+        <TextBlock Text="Адресс" Grid.Row="5"></TextBlock>
+        <Button Content="Сохранить" Grid.Row="6" Grid.ColumnSpan="2" Click="BtnSave_Click"></Button>
 
         <TextBox MaxLength="50" Grid.Column="1" Grid.Row="0" Text="{Binding Name}" Width="200" HorizontalAlignment="Left"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Born}"  Width="200" HorizontalAlignment="Left"></TextBox>
+        <DatePicker x:Name="DatePick"  Grid.Column="1" Grid.Row="1" Text="{Binding Born}"  Width="200" HorizontalAlignment="Left"></DatePicker>
         <TextBox MaxLength="18" Grid.Column="1" Grid.Row="2" Text="{Binding PhoneNumber}"  Width="200" HorizontalAlignment="Left"></TextBox>
         <TextBox MaxLength="50" Grid.Column="1" Grid.Row="3" Text="{Binding BloodType}"  Width="200" HorizontalAlignment="Left"></TextBox>
         <TextBox MaxLength="50" Grid.Column="1" Grid.Row="4" Text="{Binding PolicyNumber}" Width="200" HorizontalAlignment="Left"></TextBox>

@@ -19,10 +19,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Position" Grid.Row="0" Grid.Column="0"></TextBlock>
-        <TextBlock Text="Appointment" Grid.Row="1" Grid.Column="0"></TextBlock>
-        <TextBlock Text="Price" Grid.Row="2" Grid.Column="0"></TextBlock>
-        <Button Content="Save" Grid.Row="3"  Grid.ColumnSpan="2" HorizontalAlignment="Center" Click="Button_Click"></Button>
+        <TextBlock Text="Специализация" Grid.Row="0" Grid.Column="0"></TextBlock>
+        <TextBlock Text="Название" Grid.Row="1" Grid.Column="0"></TextBlock>
+        <TextBlock Text="Цена" Grid.Row="2" Grid.Column="0"></TextBlock>
+        <Button Content="Созранить" Grid.Row="3"  Grid.ColumnSpan="2" HorizontalAlignment="Center" Click="Button_Click"></Button>
         <ComboBox x:Name="ComboPositions" SelectedItem="{Binding Id}" DisplayMemberPath="Title" Text="{Binding PositionId}" Grid.Row="0" Grid.Column="1" Width="200" HorizontalAlignment="Left" ></ComboBox>
         <TextBox MaxLength="50" Text="{Binding Appointment}" Grid.Row="1" Grid.Column="1" Width="200" HorizontalAlignment="Left"></TextBox>
         <TextBox Text="{Binding Price}" Grid.Row="2" Grid.Column="1" Width="200" HorizontalAlignment="Left"></TextBox>

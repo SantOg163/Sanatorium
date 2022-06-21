@@ -19,10 +19,8 @@ namespace Sanatorium.Models
 
         public int ServiceId { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime VisitDate { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime DateRegistration { get; set; }
 
         public virtual Cabinet Cabinet { get; set; }

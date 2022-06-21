@@ -12,6 +12,7 @@ namespace Sanatorium.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Position()
         {
+            Cabinet = new HashSet<Cabinet>();
             Employee = new HashSet<Employee>();
             Service = new HashSet<Service>();
         }
@@ -21,6 +22,9 @@ namespace Sanatorium.Models
         [Required]
         [StringLength(50)]
         public string Title { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cabinet> Cabinet { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> Employee { get; set; }

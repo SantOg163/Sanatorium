@@ -21,15 +21,15 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Name" Grid.Row="0"></TextBlock>
-        <TextBlock Text="Position" Grid.Row="1"></TextBlock>
-        <TextBlock Text="Phone" Grid.Row="2"></TextBlock>
-        <TextBlock Text="Adress" Grid.Row="3"></TextBlock>
-        <Button Content="Save" Grid.Row="4" Grid.ColumnSpan="2" Click="BtnSave_Click"></Button>
+        <TextBlock Text="Имя" Grid.Row="0"></TextBlock>
+        <TextBlock Text="Специализация" Grid.Row="1"></TextBlock>
+        <TextBlock Text="Номер телефона" Grid.Row="2"></TextBlock>
+        <TextBlock Text="Адрес" Grid.Row="3"></TextBlock>
+        <Button Content="Сохранить" Grid.Row="4" Grid.ColumnSpan="2" Click="BtnSave_Click"></Button>
 
         <TextBox MaxLength="50" Grid.Column="1" Grid.Row="0" Text="{Binding Name}" Width="200" HorizontalAlignment="Left"></TextBox>
         <ComboBox x:Name="ComboPositions" SelectedItem="{Binding Id}" DisplayMemberPath="Title" Text="{Binding PositionId}" Grid.Column="1" Grid.Row="1" Width="200" HorizontalAlignment="Left"></ComboBox>
         <TextBox MaxLength="18" Grid.Column="1" Grid.Row="2" Text="{Binding PhoneNumber}"  Width="200" HorizontalAlignment="Left"></TextBox>
-        <TextBox MaxLength="100" Grid.Column="1" Grid.Row="3" Text="{Binding Address}" Width="400" HorizontalAlignment="Left"></TextBox>
+        <TextBox MaxLength="100" Grid.Column="1" Grid.Row="3" Text="{Binding Adress}" Width="400" HorizontalAlignment="Left"></TextBox>
     </Grid>
 </Page>

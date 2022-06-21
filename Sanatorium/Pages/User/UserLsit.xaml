@@ -1,14 +1,14 @@
-﻿<Page x:Class="Sanatorium.Pages.Schedule.ScheduleList"
+﻿<Page x:Class="Sanatorium.Pages.User.UserLsit"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Sanatorium.Pages.Schedule"
+      xmlns:local="clr-namespace:Sanatorium.Pages.User"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ScheduleList">
+      Title="UserLsit" IsVisibleChanged="Page_IsVisibleChanged">
 
-    <Grid Background="White" IsVisibleChanged="Page_IsVisibleChanged">
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
             <RowDefinition Height="73*"/>
@@ -18,32 +18,22 @@
             <Label Content="Имя сотрудника :" Margin="5" VerticalContentAlignment="Center"/>
             <TextBox x:Name="EmployeeName" Width="200" Margin="5,5,0,5" HorizontalAlignment="Left" TextChanged="EmployeeName_TextChanged"/>
         </StackPanel>
-        <DataGrid x:Name="DGridSchedule" CanUserAddRows="false" AutoGenerateColumns="False" Grid.Row="1">
+        <DataGrid x:Name="DGridUsers" CanUserAddRows="false" AutoGenerateColumns="False" VerticalAlignment="Top" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Сотрудник" Binding="{Binding Employee.Name}" Width="*"/>
-                <DataGridTemplateColumn Header="Рабочий день" Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Workday, StringFormat=dd/MM/yyyy}"/>
-                                <TextBlock Text="{Binding DayOfWeek}"/>
-
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Роль" Binding="{Binding Role}" Width="*"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="*"/>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" Width="*"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"/>
+                            <Button x:Name="Edit" Content="Редактировать" Click="btnEdit_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Удалить" HorizontalAlignment="Left" Name="Delete" Click="BtnDelete_Click" Grid.Row="2"></Button>
-        <Button Content="Добавить" HorizontalAlignment="Right" Name="Add" Click="BtnAdd_Click" Grid.Row="2"></Button>
-        <Button Content="Статистика" Margin="0,5,120,0" Name="Statistic" Click="btnStatistic_Click" Grid.Row="2" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <Button Content="Добавить" HorizontalAlignment="Right" Name="Add" Click="BtnAdd_Click" Grid.Row="2"  ></Button>
     </Grid>
 </Page>
- 
